@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Felicidades</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: #fff;
+      height: 100vh;
+      background: linear-gradient(to top, #74ebd5, #ACB6E5);
+      position: relative;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 60px;
+      z-index: 2;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .download-btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 2;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #e73370;
+    }
+
+    /* Globos */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background-color: red;
+      border-radius: 50% 50% 45% 45%;
+      opacity: 0.8;
+      animation: floatUp 10s infinite ease-in;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #333;
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 ¡Felicidades! 🎈</h1>
+  <a class="download-btn" href="sorpresaaaaa.exe" download>Presione qui para obtener recompensa</a>
+
+  <!-- Globos generados dinámicamente -->
+  <script>
+    const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'];
+    for (let i = 0; i < 20; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(balloon);
+    }
+  </script>
+</body>
+</html>
